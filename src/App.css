@@ -27,6 +27,34 @@
 .App-link {
   color: #61dafb;
 }
+.container{
+  width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.signup{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+  background-color: rgb(195, 246, 195);
+}
+.login{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+  background-color: rgb(255, 255, 95);
+}
+.delete{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+  background-color: rgb(242, 76, 30);
+}
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +64,4 @@
     transform: rotate(360deg);
   }
 }
+

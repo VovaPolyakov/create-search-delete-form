@@ -1,23 +1,55 @@
-import logo from './logo.svg';
+
 import './App.css';
+import LogIn from './components/LogIn/LogIn';
+
+import SignUp from './components/SignUp/SignUp';
+import Delete from './components/Delete/Delete'
+
+
+const userData = [];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className='container'>
+        <SignUp
+          createUser={(infoAboutUser) => {
+            if(infoAboutUser !== undefined){
+              userData.push(infoAboutUser)
+              console.log(userData)
+            }
+          }}
         >
-          Learn React
-        </a>
-      </header>
+        </SignUp>
+        <LogIn
+          searchUser={({name,email,password}) => {
+            const foundUser = userData.map(user => {
+              if(user.name === name || user.email === email || user.password === password){
+                alert(`Welcome ${user.name} `)
+                return user
+              }
+            })
+          }}
+        >
+        </LogIn>
+        <Delete
+           searchUser={({name,email,password}) => {
+            const deleteUser = userData.map(user => {
+              if(user.name === name || user.email === email || user.password === password){
+                return user
+              }
+            })
+            let delUser = userData.find(item => item.id === deleteUser.id)
+            console.log(delUser)
+            // if(deleteUser != undefined){
+            //   userData.filter((item) => item.name !== deleteUser.name)
+            // }
+            console.log(userData)
+          }}
+          
+        >
+        </Delete>
+      </div>
     </div>
   );
 }
